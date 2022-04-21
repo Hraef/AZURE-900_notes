@@ -1,0 +1,367 @@
+What is Cloud?
+    - multiple physical servers running multiple services
+    - flexible, cost effective, scalable, secure, configurability
+
+Services
+    - compute
+    - storage
+    - networking
+    - databases
+
+Microsoft Azure
+    - microsoft cloud service provider
+
+Benefits
+    - cost effective(Pay as you go)
+    - global reach
+    - security
+    - scalable
+    - elastic
+    - up to date
+
+Types of cloud computing
+    - SaaS
+        - ran and managed by service provider
+    - PaaS
+        - deployment and managemnt of apps. no configuring, provisioning or hardware
+    - IaaS
+        - provide networking features, computers and data storage
+
+Cloud Responsibilities
+    - on premise
+        [customer responsibility]
+            - apps, data, runtime, middleware, OS, virtualization, servers, storage, networking
+    - Iaas
+        [customer responsibility]
+            - apps, data, runtime, middleware, OS
+        [Service Provider responsibility]
+            - virtualization, servers, storage, networking
+    - Paas
+        [customer responsibility]
+            - apps, data
+        [Service Provider responsibility]
+            - runtime, middleware, OS, virtualization, servers, storage, networking
+    - Saas
+        [Service Provider responsibility]
+            - apps, data, runtime, middleware, OS, virtualization, servers, storage, networking
+
+Azure Deployment Models
+    [Public]
+        - everything on Cloud service provider
+    [Private]
+        - everything on company datacenter
+    [Hybrid]
+        - both private and public
+        - uses ExpressRoute(EX: fiber connection between 2)
+    [Cross Cloud]
+        - multiple cloud proividers
+        - hybrid cloud
+
+Total Cost of Ownership
+    - Ice Berg example (top of ice berg is cost at startup, ice below is running and maintenance fees)
+    - on premise has high up front and high maintenance costs
+    - cloud has lower up front and maintenance cost(save 75 percent)
+    [Capex] (Capital Expenditure)
+        - money spent up front on PHYSICAL infrastructure
+        - storage
+        - servers
+        - disaster recovery
+        - technical personnell
+    [Opex] (Operational Expenditure)
+        - cost moved over to service provider
+        - billed on Pay as You Go model
+        - cloud support
+        - cloud storage
+        - training people cloud technologies
+
+Cloud Architecture Terminologies
+    [Availability]
+        - ensure service remains available
+    [scalability]
+        - grow rapidly
+    [Elasticity]
+        - shrink and grow to meet demand
+    [Fault Tolerance]
+        - prevent failures
+    [Disaster Rrecovery]
+        - recover from failure
+
+High Availability
+    - service remain available by ensureing no SINGLE point of failure
+    - redundancy
+    - run workload across multiple availability zones
+    - Azure Load balancer
+        - distribute traffic to multiple servers in one or more datacenters. If datacenter
+        becomes unhealthy(unavailable) load balancer will route traffic to only available datacenters and servers
+
+High Scalability
+    - ability to increase capacity based on increasing demand of traffic, memory, and computing power
+    [Vertical scaling]
+        - scale up
+        - upgrade to bigger servers
+        - faster computers
+        - upgrade memory
+    [Horizontal Scaling]
+        - scale out
+        - add more servers of same size
+        - add more computers
+        - add more memory
+        - add more storage
+
+High Elasticity
+    - auto increase or descrease capacity based on demand of traffic, memory, compute power
+    - add mores servers 
+    - remove more servers
+    [Horizontal sclaing]
+        - scale out
+            - add more servers of same size
+        - scale in
+            - remove servers of same size
+
+High Durability
+    - recover from disaster and prevent data loss
+    - DR
+
+Evolution of Computing
+    [dedicated]
+        - physical server used by single customer
+        - upgrade is slow and expensive
+    [VMS]
+        - multiple applications on single machine
+        - uses hypervisor
+        - physical server shared
+        - over pay for underutilized VM
+        - limited by guest OS
+        - multpile apps can still result in conflict
+    [Containers]
+        - VM running containers
+        - Docker Daemon
+            - most common, run multiple containers
+        - utilize capacity which is cost effective
+        - share underlying OS
+        - multiple apps run side by side
+    [functions]
+        - managed VM running mnaged containers
+        - AKA SERVERLESS Compute
+        - very cost effective
+        - responsible for code and data
+        - cold starts is side affect
+
+GLobal Infrastructure( Regions and Geography)
+    - Region
+        - grouping of multiple datacenters(availability zones)
+        - AZ has 58 Regions across 140 countries
+        - region paired with other region 300 miles away
+        - one region updated at a time
+        - some rely on paired regions for Disaster Recovery
+        - Azure Geo-redundant Storage (GRS)
+            - replicates data to secondary region auto to ensure data is durable if primary fails
+    - Geography
+        - discreet market of 2 or more regions that preserve data residency and compliance boubdaries
+    
+Region types and Service Availability 
+    - not all azure services available in every region
+    - Reccomended Region
+        - provides broadest range of services designed to support availability Zones nor or in future
+    - Alternate Region
+        - extends azure footrpint within data residency boundary where reccomended region also exists. not designed to support AZs.
+
+General availability
+    - when service is ready to be used publicly by everyone
+    - grouped into 3 categories
+        - Foundational
+            - immediatley in 12 months reccomended and alternate regions
+        - Mainstream 
+            - immediatley or in 12 months in reccomended regions may become available in alternate regions based on customer demand
+        - Specialized
+            - available in reccomedned in alternate regions
+
+Special Regions
+    - meets compliance and legal reasons
+    - US DoD central
+    - US Gov Virginia
+    - US Gov Iowa
+    - 3 azure secret locations
+    - china east
+    - china north
+
+Availablity Zones
+    - physical location made up of one or more datacenters
+    - building with servers and computers
+    - region contains 3 AZ
+    - data centers in regions isolated from eachother
+
+AZ supported Regions
+    - no all support for AZ
+    - fault domain
+        - logical grouping of hardware to avoid single point of failure
+    - update domains
+        - ensure resources dont go offline during updates
+    - availability set
+        - logical grouping to verify VMs not in same domains to avoid downtime
+
+Az VMs
+    - windows or linux machine
+AZ container instance
+    - docker as a seervice run apps on azure without VM
+Az AKS 
+    - kubernetes as a service
+Az Service Fabric
+    - tier-1 enterprise container as a service(microservices)
+Az functions
+    - event driven serverless compute run code without servers
+Az batch
+    - plan, schedule, and execute batch computer workloads on 100+ jobs parallel
+
+Storage Services
+    Az Blob storage
+        - object serverkess storsge
+        - large files
+        - pay what you store
+        - no resizing volumes
+    disk storage
+        - Virtual volume
+        - SSD or HDD
+        - encryption at default
+        - attach volume to VMs
+    File storage
+        - shared volume
+        - access and manage server
+    queue storage
+        - messaging
+        - delivering messages between apps
+    Table storage
+        - NoSQL store
+        - hosts unstructured data schema
+    Data box/ databox heavy
+        - rugged briefcase for storing more data
+        - move terabytes or petabytes of data
+    Archive storage
+        - long term cold storage
+        - cheap for years of storage
+    Data Lake
+        - centralized repo
+        - store all structured/unstructured data @ any scale
+
+Database Services
+    Comsmos DB
+        - fully managed NoSQL
+        - 99.999 availability
+    SQL DB
+        - fully managed SQL
+        - auto scale
+        - integral intel
+        - robust security
+    MySQL/PSQL/MariaDB
+        - fully managed
+        - scalable
+        - high availability
+        - secure
+    SQL server on VMs
+        - host enterprise SQL server apps in cloud
+        - lift and shift MS SQL servers from on premise to azure
+    Synapse analytics(SQL database warehouse)
+        - managed warehouse
+        - security at every level
+    Database migration Service
+        - migrates server to cloud withoout app code changes
+    Cache for redis
+        - Wide column NoSQL databse
+        - store unstructured data
+
+App intergration services
+    Notifications hub
+        - push notifications
+    API apps
+        - build and cinsume APIs in cloud
+    Service Bus
+        - Maas Messaging as a service in cloud
+        - reliable
+    Stream analytics
+        - real time
+        - serverless
+    Logic apps
+        - schedule automate and orchestrate nusineesss workflows
+    API management
+        - multi cloud manamgement 
+    Queue storage
+        - messaging que
+        - data store for que and reliably delivering messages
+
+Developer and mobile tools
+    SignalR service
+        - real time messaging
+    APP service
+        - deploy and scale web apps
+        - .net, node.js, java, python and PHP
+    Visual studio
+        - code editor
+    Xamarin
+        - mobile app framework
+
+devops services
+    devops
+        - plan, colla
+    boards
+        - kanban(like github)
+    Pipelines
+        - CI/CD
+    Repos
+        - like github repos
+    Test plans
+        - test apps
+    artifacts
+        - package manager for CI/CD pipelines
+    DEVtest labs
+        - labs to test
+
+Resource manager
+    IAC- infrastructure as a code
+        - manage and process using scripts to setup services
+    Resource manager(ARM)
+        - programatticly create azure resources via JSON
+
+Quickstart templates
+    Premade ARM templates
+
+Vnets and subnets
+    Virtual network(Vnet)
+        - logically isolated sectio of AZ network where you launch resources
+    subnets
+        - break up ip ranges
+
+Cloud native networking services
+    DNS
+        - fast ultra high domain availability    
+    Vnet
+        - cloud network
+    Load balancer(dumb)
+        - OSI level 4 load balancer
+    app gateway(smart)
+        - http load balancer
+        - apply web app firewall
+    security groups
+        - virtual firewall at subnet level
+
+Enterprise/hybrid network services
+    Front Door
+        - scalable and secure entry point for fast delivery of global apps
+    Exprrss Route
+        - connection between on prem and cloud
+        - 50 Mbps - 100 Gbps
+    Virtual WAN
+        - brings many networks together for routing funcitons
+    Connection
+        - VPN in cliuyd
+    VPN gateway
+        - site to site connection bewteen virtual network and local network
+
+Traffic manager
+    operates at DNS layer
+DNS
+    manage DNS records
+Load balancer
+     evenly distribute incoming network traffic across group of backed resources or servers
+     public load balancer(public facing)
+     private load balancer(private facing)
+
