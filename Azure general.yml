@@ -215,10 +215,13 @@ Az batch
 
 Storage Services
     Az Blob storage
-        - object serverkess storsge
+        - binary large object
+        - GPV1 general purpose v1
+        - GPV2 general purpose v2
         - large files
         - pay what you store
         - no resizing volumes
+        - image.jpg, video.avi
     disk storage
         - Virtual volume
         - SSD or HDD
@@ -242,6 +245,19 @@ Storage Services
     Data Lake
         - centralized repo
         - store all structured/unstructured data @ any scale
+
+Storage Tiers
+    Hot
+        - high storage costs
+        - lower access cost
+    Cold
+        - lower storage costs
+        - high access costs
+        - data remains cool fro 30 days or more
+    Archive
+        - low storage costs
+        - high retrieval costs
+        - when blob in archive its offline and cant be read
 
 Database Services
     Comsmos DB
@@ -364,4 +380,20 @@ Load balancer
      evenly distribute incoming network traffic across group of backed resources or servers
      public load balancer(public facing)
      private load balancer(private facing)
+
+
+Replication 
+    LRS Locally replicated storage
+        - replicated 3 times in storage scale
+        - hotsed in datacenter in same region account was created
+    ZRS zone replicated storage 
+        - replicated 3 times across 1 or 2 datacenters
+        - adds 3 replicas similar to LRS
+        - data durable if primary dataceneter is unavailable or unrecoverable
+    GRS geographically replicated storage
+        - replicates data to 2nd region hundreds of miles away
+        - data is curable in event of complete outage
+    RA-GRS read only geographically storage
+        - same as GRS
+        - provides read access to data in othe region
 
